@@ -1,5 +1,33 @@
+var send = document.getElementById("send");
+var text = document.getElementById("text");
+var workspace = "Cloud Computing"
+var channel = "test"
+var username = "Dlwlrma"
+var userimg = "iu2.jpeg"
+var apigClient = apigClientFactory.newClient();
+
+send.onclick = function (e) {
+  if (text.value !== ""){
+      msg = {
+      "workspace": workspace,
+      "channel": channel,
+      "username": username,
+      "userimg": userimg,
+      "content": text.value,
+      "time": new Date(),
+    }
+    apigClient.sendPost({},msg,{}).then((response) => {
+          console.log(response);
+          showFeeds([msg]);
+        })
+        .catch((error) => {
+          console.log('an error occurred', error);
+        });
+    text.value = "";
+  }
+}
+
 window.onload = function search() {
-  var apigClient = apigClientFactory.newClient();
   var params = {
     "workspace": "Cloud Computing",
     "channel": "test"
@@ -33,5 +61,5 @@ function showFeeds(res) {
     `
     d[0].insertAdjacentHTML('beforeend', script);
   }
-  
+   d[0].scrollTop = d[0].scrollHeight;
 }
