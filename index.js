@@ -7,6 +7,7 @@ var userimg = "iu2.jpeg";
 var apigClient = apigClientFactory.newClient();
 
 var box = document.getElementsByClassName("box");
+var channels = document.getElementsByClassName("channel_name")
 
 for (var i = 0; i < box.length; i++){
   box[i].onclick = function(e) {
@@ -16,6 +17,12 @@ for (var i = 0; i < box.length; i++){
   }  
 }
 
+for (var i = 0; i < channels.length; i++){
+  channels[i].onclick = function(e) {
+    window.localStorage.setItem('channel', this.name);
+    location.reload();
+  }  
+}
 
 send.onclick = function (e) {
   if (text.value !== ""){
