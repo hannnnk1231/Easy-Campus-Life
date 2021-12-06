@@ -1,16 +1,26 @@
 var send = document.getElementById("send");
 var text = document.getElementById("text");
-var workspace = "Cloud Computing"
-var channel = "test"
+var workspace_title = document.getElementsByClassName('workspace_title')
 var username = "Dlwlrma"
 var userimg = "iu2.jpeg"
 var apigClient = apigClientFactory.newClient();
 
+var box = document.getElementsByClassName("box");
+
+for (var i = 0; i < box.length; i++){
+  box[i].onclick = function(e) {
+    window.localStorage.setItem('workspace', this.name);
+    window.localStorage.setItem('channel', "test");
+    location.reload();
+  }  
+}
+
+
 send.onclick = function (e) {
   if (text.value !== ""){
       msg = {
-      "workspace": workspace,
-      "channel": channel,
+      "workspace": window.localStorage.getItem('workspace') || 'Cloud Computing',
+      "channel": window.localStorage.getItem('channel') || 'test',
       "username": username,
       "userimg": userimg,
       "content": text.value,
@@ -27,10 +37,12 @@ send.onclick = function (e) {
   }
 }
 
-window.onload = function search() {
+window.onload = function load() {
+  title = window.localStorage.getItem('workspace') || 'Cloud Computing'
+  workspace_title[0].insertAdjacentHTML('beforeend', `<span>${title}</span>`);
   var params = {
-    "workspace": "Cloud Computing",
-    "channel": "test"
+    "workspace": window.localStorage.getItem('workspace') || 'Cloud Computing',
+    "channel": window.localStorage.getItem('channel') || 'test'
   };
   apigClient.searchGet(params,{},{})
     .then(function (result) {
