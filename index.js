@@ -1,8 +1,9 @@
 var send = document.getElementById("send");
 var text = document.getElementById("text");
-var workspace_title = document.getElementsByClassName('workspace_title')
-var username = "Dlwlrma"
-var userimg = "iu2.jpeg"
+var workspace_title = document.getElementsByClassName('workspace_title');
+var feed_title = document.getElementsByClassName('feed_title');
+var username = "Dlwlrma";
+var userimg = "iu2.jpeg";
 var apigClient = apigClientFactory.newClient();
 
 var box = document.getElementsByClassName("box");
@@ -38,8 +39,10 @@ send.onclick = function (e) {
 }
 
 window.onload = function load() {
-  title = window.localStorage.getItem('workspace') || 'Cloud Computing'
-  workspace_title[0].insertAdjacentHTML('beforeend', `<span>${title}</span>`);
+  w_title = window.localStorage.getItem('workspace') || 'Cloud Computing'
+  f_title = window.localStorage.getItem('channel') || 'test'
+  workspace_title[0].insertAdjacentHTML('beforeend', `<span>${w_title}</span>`);
+  feed_title[0].insertAdjacentHTML('afterbegin', `<h1>${f_title}</h1>`);
   var params = {
     "workspace": window.localStorage.getItem('workspace') || 'Cloud Computing',
     "channel": window.localStorage.getItem('channel') || 'test'

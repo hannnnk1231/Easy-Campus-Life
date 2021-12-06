@@ -91,6 +91,7 @@ body {
   border: 0.125rem solid #3f0e40;
   border-radius: 0.3rem;
   background-color: #e01563;
+  color: white;
 }
 
 .box:hover {
