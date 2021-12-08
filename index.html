@@ -44,9 +44,7 @@
       <!-- Sidebar Starts -->
 
       <div class="sidebar">
-        <button type="button" class="box" name="Cloud Computing">C</button>
-        <button type="button" class="box" name="test">T</button>
-        <button type="button" class="plus">+</button>
+        <button type="button" class="plus" id="plus">+</button>
       </div>
       <hr width="1" size="500">
       <div class="channel">
@@ -76,10 +74,6 @@
           </div>
           <div class="sidebar__category">
             <i class="material-icons">tag</i>
-            <button type="button" class='channel_name' name="files">files</button>
-          </div>
-          <div class="sidebar__category">
-            <i class="material-icons">tag</i>
             <button type="button" class='channel_name' name="groups">groups</button>
           </div>
         </div>
@@ -104,6 +98,25 @@
       </div>
     </div>
     <!-- Main Body Ends -->
+
+    <!-- Add Workspace Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form>
+          <h2>Create a Workspace</h2>
+          <label class="label">Name</label>
+          <div><input class = "modal_input" id="w_name" placeholder="e.g. Colud Computing"></input></div>
+          <h2> Or Join a Workspace </h2>
+          <label class="label">Id</label>
+          <div class="form-group-control">
+            <input class = "modal_input prepend" id="w_id" placeholder="e.g. 12345"></input>
+            <i class = "prepend-icon"> #</i>
+          </div>
+          <button type="button" class="modal_btn" id="modal_btn">GO!</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
 
