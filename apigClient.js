@@ -122,13 +122,13 @@ apigClientFactory.newClient = function (config) {
     apigClient.getUserWorkspacesGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, ['username'], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['event', 'username'], ['body']);
         
         var getUserWorkspacesGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/get_user_workspaces').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['username']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['event', 'username']),
             body: body
         };
         
@@ -152,6 +152,60 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(getUserWorkspacesOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.groupGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['w_id'], ['body']);
+        
+        var groupGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/group').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['w_id']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(groupGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.groupPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var groupPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/group').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(groupPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.groupOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var groupOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/group').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(groupOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     

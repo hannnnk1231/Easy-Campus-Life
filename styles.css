@@ -106,7 +106,7 @@ body {
   background: none;
 }
 
-.channel_name:hover, .sidebar__category:hover {
+.channel_name:hover, .sidebar__category:hover, .workspace_user:hover, .workspace_profilename {
   background: #e5e5e5;
   cursor: pointer;
 }
@@ -121,7 +121,7 @@ body {
 
 .sidebar__category {
   display: flex;
-  padding: 1px 15px;
+  padding: 1px 15px 15px;
 }
 
 .sidebar__category i {
@@ -148,6 +148,34 @@ body {
   color: #c0c0c0;
   font-style: italic;
   font-size: 4px;
+}
+
+.workspace_users {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px;
+}
+
+.workspace_user {
+  display: flex;
+  padding: 5px 15px;
+}
+
+.workspace_profilename{
+  color: white;
+  font-size: 14px;
+  margin-left: 10px;
+  border: none;
+  background: none;
+}
+
+.workspace_user img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* The Modal (background) */
@@ -273,6 +301,11 @@ body {
   margin-left: 1rem;
   margin-right: 2rem;
 }
+
+.feed_title {
+  margin-bottom: 10px;
+}
+
 .feeds-user-avatar {
   width: 3rem;
   height: 3rem;
@@ -351,4 +384,77 @@ span {
   text-decoration: none;
   color: white;
   font-size: 14px;
+}
+
+.group {
+  display: flex;
+}
+
+.group-users {
+  display: flex;
+  padding: 10px 10px;
+}
+
+
+.group-users img {
+  margin-left: 10px;
+  object-fit: cover;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.group-users img:hover {
+  cursor: pointer;
+}
+
+.group-join-btn {
+  margin-left: auto;
+  height: 30px;
+  width: 60px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  border-radius: 0.225rem;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #3f0e40;
+}
+
+/* profile */
+.card-container {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    padding-top: 30px;
+    position: relative;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.card-container h2{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.profile-pic-div{
+    height: 200px;
+    width: 200px;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #03BFCB;
+}
+
+.profile-pic-div img{
+    height: 100%;
+    width: 100%;
 }
