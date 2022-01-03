@@ -32,6 +32,19 @@ function GetProfileName(username) {
   });
 }
 
+// Header
+
+var event_icon = document.getElementById("event_icon");
+event_icon.onclick = function() {
+  window.location.href = "http://easy-campus-react-front-host.s3-website-us-east-1.amazonaws.com/Easy-Campus-Life/event.html?username="+username;
+}
+
+var account_icon = document.getElementById("account_icon") 
+account_icon.onclick = function(){
+  window.location.href = "http://easy-campus-react-front-host.s3-website-us-east-1.amazonaws.com/readProfile";
+}
+
+
 // Modal
 var modal = document.getElementById("myModal");
 var add_workspace = document.getElementsByClassName("plus")[0];

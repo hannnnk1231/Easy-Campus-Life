@@ -119,6 +119,60 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.eventGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['username'], ['body']);
+        
+        var eventGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/event').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['username']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(eventGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.eventPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var eventPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/event').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(eventPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.eventOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var eventOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/event').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(eventOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.getUserWorkspacesGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -206,6 +260,42 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(groupOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.registerEventPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var registerEventPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/register_event').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(registerEventPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.registerEventOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var registerEventOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/register_event').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(registerEventOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     

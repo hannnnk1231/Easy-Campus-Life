@@ -1,0 +1,105 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Material Icons -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- CSS File -->
+    <link rel="stylesheet" href="styles.css" />
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.179.0.min.js"></script>
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+    <title>Easy Campus Life</title>
+  </head>
+  <body>
+    <!-- Header Starts -->
+    <div class="header">
+      <div class="header__left">
+        <h1>EASY CAMPUS LIFE</h1>
+      </div>
+
+      <div class="header__icons">
+        <i class="material-icons" id="event_icon">event</i>
+        <i class="material-icons display-this" id="account_icon">account_circle</i>
+      </div>
+    </div>
+    <!-- Header Ends -->
+
+    <!-- Main Body Starts -->
+    <div class="mainBody">
+      <!-- Sidebar Starts -->
+
+      <div class="sidebar">
+        <button type="button" class="plus" id="back"><</button>
+      </div>
+      
+      <!-- Sidebar Ends -->
+
+      <!-- Feed Section -->
+      <div class="events">
+        <div class="event_category_title">
+          <h1>Recommend For You</h1>
+          <button id='create_event_btn'>Create Event</button>
+        </div>
+        <div class="event_r"></div>
+        <div class="event_category_title">
+          <h1>All Events</h1>
+        </div>
+        <div class="event_all"></div>
+
+      </div>
+    <!-- Main Body Ends -->
+    </div>
+
+    <!-- Add Workspace Modal -->
+    <div id="myModal" class="modal">
+      <div class="event-modal-content">
+        <span class="close">&times;</span>
+        <form>
+          <h2>Create an Event</h2>
+          <div class="event_area">
+            <div class="event_area_content">
+              <label class="label">Name</label>
+              <div><textarea class = "modal_input" id="e_name" placeholder="e.g. Cloud" required></textarea></div>
+              <label class="label">Image URL</label>
+              <div><textarea class = "modal_input" id="e_img" required></textarea></div>
+              <label class="label">Content</label>
+              <div><textarea class = "modal_input_content" id="e_content" required></textarea></div>
+            </div>
+            <div class="event_area_detail">
+              <label class="label">Host</label>
+              <div><textarea class = "modal_input" id="e_host" placeholder="e.g. Hank"></textarea></div>
+              <label class="label">Date</label>
+              <div><textarea class = "modal_input" id="e_date" placeholder="e.g. Thursday, November 11, 2021"></textarea></div>
+              <label class="label">Time</label>
+              <div><textarea class = "modal_input" id="e_time" placeholder="e.g. 6:00pm - 7:30pm EST"></textarea></div>
+              <label class="label">Location</label>
+              <div><textarea class = "modal_input" id="e_location"></textarea></div>
+              <label class="label">Contact</label>
+              <div><textarea class = "modal_input" id="e_contact"></textarea></div>
+              <label class="label">Cost</label>
+              <div><textarea class = "modal_input" id="e_cost" placeholder="e.g. Free"></textarea></div>
+            </div>
+          </div>
+          <button type="button" class="modal_btn" id="modal_btn">Create!</button>
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+<script src="event.js"></script>

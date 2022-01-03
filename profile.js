@@ -21,6 +21,16 @@ back_btn.onclick = function() {
   window.location.href = "http://easy-campus-react-front-host.s3-website-us-east-1.amazonaws.com/Easy-Campus-Life/index.html?username="+originUsername;
 }
 
+var event_icon = document.getElementById("event_icon");
+event_icon.onclick = function() {
+  window.location.href = "http://easy-campus-react-front-host.s3-website-us-east-1.amazonaws.com/Easy-Campus-Life/event.html?username="+username;
+}
+
+var account_icon = document.getElementById("account_icon") 
+account_icon.onclick = function(){
+  window.location.href = "http://easy-campus-react-front-host.s3-website-us-east-1.amazonaws.com/readProfile";
+}
+
 window.onload = function load() {
   apigClient.getUserWorkspacesGet({"username":username, "event": "info"},{},{}).then(function(result) {
     console.log("Got info for: ", username, "info", result.data)
